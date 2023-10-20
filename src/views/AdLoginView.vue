@@ -26,7 +26,7 @@ import { RouterLink } from 'vue-router';
                 </div>
                 <div class="flex items-center justify-between">
                     <!-- new routerlink required -->
-                    <RouterLink to="/student"
+                    <RouterLink to="/Addashboard"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Sign In
                     </RouterLink>
