@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router';
+
 </script>
 
 <template>
@@ -23,15 +25,14 @@
             id="password" type="password" placeholder="Password" />
         </div>
         <div class="flex items-center justify-between">
-          <RouterLink
-            to="/student" 
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
+          <RouterLink to="/student"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Sign In
           </RouterLink>
-          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+          <RouterLink to="/register"
+            class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
             Student Register
-          </a>
+          </RouterLink>
         </div>
       </div>
     </div>
