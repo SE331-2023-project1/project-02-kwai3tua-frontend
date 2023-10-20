@@ -5,7 +5,7 @@ import AdLoginView from '../views/AdLoginView.vue'
 import StudentInfoView from '../views/StudentInfoView.vue'
 import StudentDashboardView from '../views/StudentDashboardView.vue'
 import AdDashboardView from '../views/AdDashboardView.vue'
-import CreateTeacherVew from '../views/CreateTeacherView.vue'
+import AdCreateTeacherVew from '../views/AdCreateTeacherView.vue'
 import AdOverallViewVue from '../views/AdOverallView.vue'
 
 const router = createRouter({
@@ -44,7 +44,7 @@ const router = createRouter({
     {
       path: '/CreateTeacher',
       name: 'createteacher',
-      component: CreateTeacherVew
+      component: AdCreateTeacherVew
     },
     {
       path: '/student',
