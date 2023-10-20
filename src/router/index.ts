@@ -7,7 +7,9 @@ import StudentDashboardView from '../views/StudentDashboardView.vue'
 import AdvisorDashboardView from '../views/AdvisorDashboardView.vue'
 import AdDashboardView from '../views/AdDashboardView.vue'
 import AdCreateTeacherVew from '../views/AdCreateTeacherView.vue'
-import AdOverallViewVue from '../views/AdOverallView.vue'
+import AdOverallView from '../views/AdOverallView.vue'
+import UpdateStudentInfoView from '../views/UpdateStudentInfoView.vue'
+import UpdateTeacherView from '../views/UpdateTeacherView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,12 +32,17 @@ const router = createRouter({
     {
       path: '/AdOverall',
       name: 'AdOverall',
-      component: AdOverallViewVue
+      component: AdOverallView
     },
     {
       path: '/StudentInfo',
       name: 'studentinfo',
       component: StudentInfoView
+    },
+    {
+      path: '/UpdateStudentInfo',
+      name: 'updatestudentinfo',
+      component: UpdateStudentInfoView
     },
     {
       path: '/AdDashboard',
@@ -46,6 +53,11 @@ const router = createRouter({
       path: '/CreateTeacher',
       name: 'createteacher',
       component: AdCreateTeacherVew
+    },
+    {
+      path: '/UpdateTeacher',
+      name: 'updateteacher',
+      component: UpdateTeacherView
     },
     {
       path: '/student',
