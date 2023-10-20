@@ -4,6 +4,8 @@ import RegisterView from '../views/RegisterView.vue'
 import AdLoginView from '../views/AdLoginView.vue'
 import StudentInfoView from '../views/StudentInfoView.vue'
 import StudentDashboardView from '../views/StudentDashboardView.vue'
+import AdDashboardView from '../views/AdDashboardView.vue'
+import CreateTeacherVew from '../views/CreateTeacherView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +29,16 @@ const router = createRouter({
       path: '/StudentInfo',
       name: 'studentinfo',
       component: StudentInfoView
+    },
+    {
+      path: '/AdDashboard',
+      name: 'admindashboard',
+      component: AdDashboardView
+    },
+    {
+      path: '/CreateTeacher',
+      name: 'createteacher',
+      component: CreateTeacherVew
     },
     {
       path: '/student',
