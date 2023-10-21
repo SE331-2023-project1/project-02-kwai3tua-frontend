@@ -18,6 +18,7 @@ const prop = defineProps({
     flex flex-col justify-center items-center">
     <span>{{ student?.name }} {{ student?.surname }}</span>
       <h4>{{ student?.department }}</h4>
+      <h5>{{ student?.advisor }}</h5>
     </div>
 </template>
 

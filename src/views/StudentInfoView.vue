@@ -7,13 +7,18 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const student = ref<StudentItem>({
+value: function (value: any): unknown {
+throw new Error('Function not implemented.');
+},
 id: 0,
 studentId: 0,
 name: '',
 surname: '',
 profileImg: '',
-department: ''
-})
+department: '',
+advisor: ''
+}
+)
 
 function saveStudent() {
     StudentService.saveStudent(student.value)
