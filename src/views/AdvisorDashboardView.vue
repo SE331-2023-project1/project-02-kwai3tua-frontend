@@ -2,6 +2,40 @@
 import AnnouncementCard from '@/components/AnnouncementCard.vue'
 import StudentListCard from '@/components/StudentListCard.vue'
 import StudentCommentCard from '@/components/StudentCommentCard.vue'
+import type { StudentItem } from '@/type'
+import { ref, watchEffect } from 'vue'
+import StudentService from '@/services/StudentService'
+import { useRouter } from 'vue-router'
+import type { AxiosResponse } from 'axios'
+
+const studentList = ref<Array<StudentItem>>([])
+const totalStudent = ref<number>(0)
+const router = useRouter()
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true
+  },
+  limit: {
+    type: Number,
+    required: true
+  }
+})
+// eslint-disable-next-line vue/no-dupe-keys
+let limit = 3
+
+watchEffect(() => {
+  StudentService.getStudent(limit, props.page)
+    .then((response: AxiosResponse<StudentItem[]>) => {
+      studentList.value = response.data
+      totalStudent.value = response.headers['x-total-count']
+      console.log('studentList:', studentList.value);
+    })
+    .catch(() => {
+      router.push({ name: 'NetworkError' })
+    })
+})
+
 </script>
 
 <template>
@@ -15,7 +49,7 @@ import StudentCommentCard from '@/components/StudentCommentCard.vue'
   <div class="flex">
     <div class="ml-10 mr-10">
       <h1 class="font-bold text-2xl text-blue-500">Advisee List</h1>
-      <StudentListCard></StudentListCard>
+      <StudentListCard v-for="student in studentList" :key="student.studentId" :student="student"></StudentListCard>
     </div>
     <div class="mr-10">
       <h1 class="font-bold text-2xl text-blue-500">Advisee Comment</h1>
