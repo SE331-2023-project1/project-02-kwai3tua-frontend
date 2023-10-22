@@ -1,15 +1,8 @@
-import axios from 'axios'
-import type { AxiosInstance, AxiosResponse } from 'axios'
+import apiClient from './AxiosClient'
+import type { AxiosResponse } from 'axios'
 import type { StudentItem } from '@/type'
 
-const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080',
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
-})
+
 
 export default {
   getStudent(perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
