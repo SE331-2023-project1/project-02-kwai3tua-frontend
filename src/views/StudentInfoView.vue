@@ -16,7 +16,7 @@ name: '',
 surname: '',
 profileImg: '',
 department: '',
-advisor: ''
+advisor: {id: 0, name:''}
 }
 )
 
