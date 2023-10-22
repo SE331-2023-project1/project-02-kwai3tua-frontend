@@ -24,7 +24,7 @@ import { RouterLink } from 'vue-router';
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="username" type="text" placeholder="Username" />
                 <!-- New RouterLink for editing information -->
-                <RouterLink to="/Addashboard"
+                <RouterLink to="/admindashboard"
                     class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Edit Information
                 </RouterLink>
@@ -33,7 +33,7 @@ import { RouterLink } from 'vue-router';
 
         <!-- Overall Section -->
         <div class="w-full max-w-screen-md">
-            <RouterLink to="/AdOverall" class="text-5xl font-bold text-blue-500 mb-4 text-center">Overall
+            <RouterLink to="/adminoverall" class="text-5xl font-bold text-blue-500 mb-4 text-center">Overall
             </RouterLink>
 
         </div>
