@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import AdLoginView from '../views/AdLoginView.vue'
+import AdminLoginView from '../views/AdminLoginView.vue'
 import StudentInfoView from '../views/StudentInfoView.vue'
 import StudentDashboardView from '../views/StudentDashboardView.vue'
+import StudentDetailView from '../views/StudentDetailView.vue'
 import AdvisorDashboardView from '../views/AdvisorDashboardView.vue'
-import AdDashboardView from '../views/AdDashboardView.vue'
-import AdCreateTeacherVew from '../views/AdCreateTeacherView.vue'
-import AdOverallViewVue from '../views/AdOverallView.vue'
+import AdminDashboardView from '../views/AdminDashboardView.vue'
+import AdminCreateTeacherVew from '../views/AdminCreateTeacherView.vue'
+import AdminOverallView from '../views/AdminOverallView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,34 +24,39 @@ const router = createRouter({
       component: RegisterView
     },
     {
-      path: '/Adlogin',
+      path: '/adminlogin',
       name: 'adminlogin',
-      component: AdLoginView
+      component: AdminLoginView
     },
     {
-      path: '/AdOverall',
-      name: 'AdOverall',
-      component: AdOverallViewVue
+      path: '/adminoverall',
+      name: 'adminoverall',
+      component: AdminOverallView
     },
     {
-      path: '/StudentInfo',
+      path: '/studentinfo',
       name: 'studentinfo',
       component: StudentInfoView
     },
     {
-      path: '/AdDashboard',
+      path: '/admin',
       name: 'admindashboard',
-      component: AdDashboardView
+      component: AdminDashboardView
     },
     {
-      path: '/CreateTeacher',
+      path: '/createteacher',
       name: 'createteacher',
-      component: AdCreateTeacherVew
+      component: AdminCreateTeacherVew
     },
     {
       path: '/student',
       name: 'studentdashboard',
       component: StudentDashboardView
+    },
+    {
+      path: '/studentdetail',
+      name: 'studentdetail',
+      component: StudentDetailView
     },
     {
       path: '/advisor',

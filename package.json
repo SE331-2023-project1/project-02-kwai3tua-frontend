@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.3.6",
     "axios": "^1.5.1",
     "cors": "^2.8.5",
     "path": "^0.12.7",

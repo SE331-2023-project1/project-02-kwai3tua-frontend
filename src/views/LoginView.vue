@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-
 </script>
 
 <template>
@@ -37,7 +36,7 @@ import { RouterLink } from 'vue-router';
       </div>
     </div>
     <div class="absolute bottom-4 right-4">
-      <RouterLink to="/AdLogin" class="text-blue-500 hover:text-blue-800 font-bold" href="#">
+      <RouterLink to="/adminlogin" class="text-blue-500 hover:text-blue-800 font-bold" href="#">
         Admin Login
       </RouterLink>
     </div>
