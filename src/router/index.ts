@@ -4,6 +4,7 @@ import RegisterView from '../views/RegisterView.vue'
 import AdminLoginView from '../views/AdminLoginView.vue'
 import StudentInfoView from '../views/StudentInfoView.vue'
 import StudentDashboardView from '../views/StudentDashboardView.vue'
+import StudentDetailView from '../views/StudentDetailView.vue'
 import AdvisorDashboardView from '../views/AdvisorDashboardView.vue'
 import AdminDashboardView from '../views/AdminDashboardView.vue'
 import AdminCreateTeacherVew from '../views/AdminCreateTeacherView.vue'
@@ -38,7 +39,7 @@ const router = createRouter({
       component: StudentInfoView
     },
     {
-      path: '/admindashboard',
+      path: '/admin',
       name: 'admindashboard',
       component: AdminDashboardView
     },
@@ -51,6 +52,11 @@ const router = createRouter({
       path: '/student',
       name: 'studentdashboard',
       component: StudentDashboardView
+    },
+    {
+      path: '/studentdetail',
+      name: 'studentdetail',
+      component: StudentDetailView
     },
     {
       path: '/advisor',

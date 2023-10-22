@@ -6,7 +6,7 @@ import AdvisorCommentCard from '@/components/AdvisorCommentCard.vue'
 
 <template>
   <div class="flex flex-col items-center justify-start">
-    <h1 class="font-bold text-4xl text-blue-500 mt-6 mb-6">Student Dashboard</h1>
+    <h1 class="font-bold text-5xl text-blue-500 mt-6 mb-6">Student Dashboard</h1>
   </div>
   <div class="">
     <h1 class="font-bold text-2xl text-blue-500">Annoucement</h1>

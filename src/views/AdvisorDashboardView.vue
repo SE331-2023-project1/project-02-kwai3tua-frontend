@@ -40,7 +40,7 @@ watchEffect(() => {
 
 <template>
   <div class="flex flex-col items-center justify-start">
-    <h1 class="font-bold text-4xl text-blue-500 mt-6 mb-6">Advisor Dashboard</h1>
+    <h1 class="font-bold text-5xl text-blue-500 mt-6 mb-6">Advisor Dashboard</h1>
   </div>
   <div class="">
     <h1 class="font-bold text-2xl text-blue-500">Post Annoucement</h1>
@@ -49,10 +49,15 @@ watchEffect(() => {
   <div class="">
     <div class="">
       <h1 class="font-bold text-2xl text-blue-500 mb-5">Advisee List</h1>
-      <StudentListCard v-for="student in studentList" :key="student.studentId" :student="student"></StudentListCard>
+    <div>
+      <RouterLink v-for="student in studentList" 
+      :key="student.studentId" :to="{ name: 'studentdetail', params: { studentId: student.studentId } }">
+      <StudentListCard :student="student"></StudentListCard>
+      </RouterLink>
+    </div>
     </div>
     <div class="">
-      <h1 class="font-bold text-2xl text-blue-500 mt-5">Advisee Comment</h1>
+      <h1 class="font-bold text-2xl text-blue-500">Advisee Comment</h1>
       <StudentCommentCard></StudentCommentCard>
     </div>
   </div>
