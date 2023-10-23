@@ -1,5 +1,43 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import type { TeacherItem } from '@/type';
+import { ref } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
+import TeacherService from '@/services/TeacherService';
+import ImageUpload from '@/components/ImageUpload.vue';
+
+const router = useRouter();
+
+const teacher = ref<TeacherItem>({
+  id: 0,
+  firstName: "",
+  lastName: "",
+  profileImg: [],
+  department: "",
+  studentList: [],
+  student: {
+    id: 0,
+    firstName: "",
+    lastName: "",
+    studentID: "",
+    profileImg: [],
+    department: "",
+  },
+});
+
+function saveTeacher() {
+    TeacherService.saveTeacher(teacher.value).then((res) => {
+    console.log(res.data);
+    console.log(res.data.profileImg)
+    router
+      .push({
+        name: "admindashboard"
+        
+      })
+      .catch(() => {
+        router.push({ name: "network-error " });
+      });
+  });
+}
 
 </script>
 
@@ -8,37 +46,34 @@ import { RouterLink } from 'vue-router';
         <div class="w-full max-w-screen-md">
             <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">Create Teacher</h1>
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form @submit.prevent="saveTeacher">
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                        Name
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">
+                        Fisrt Name
                     </label>
                     <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name" type="text" placeholder="Name" />
+                        id="firstName" type="text"
+                        v-model="teacher.firstName" />
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
-                        Surname
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">
+                        Last Name
                     </label>
                     <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="surname" type="text" placeholder="Surname" />
+                        id="lastName" type="text"
+                        v-model="teacher.lastName" />
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="position">
-                        Academic Position
-                    </label>
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="position" type="text" placeholder="Academic Position" />
-                </div>
+                
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="Department">
                         Department
                     </label>
                     <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="Department" type="text" placeholder="Department" />
+                        id="Department" type="text" 
+                        v-model="teacher.department"/>
                 </div>
 
                 <!-- Add the profile image input -->
@@ -46,26 +81,9 @@ import { RouterLink } from 'vue-router';
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
                         Profile Image
                     </label>
-                    <input type="file"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="profileImage" accept="image/*" />
+                    <ImageUpload v-model="teacher.profileImg" />
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        Username
-                    </label>
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username" type="text" placeholder="Username" />
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Password
-                    </label>
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password" type="text" placeholder="Password" />
-                </div>
+                
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="advisees">
                         Advisees
@@ -76,11 +94,12 @@ import { RouterLink } from 'vue-router';
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <RouterLink to="/admindashboard"
+                    <button  type="submit"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Create Teacher
-                    </RouterLink>
+                    </button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
