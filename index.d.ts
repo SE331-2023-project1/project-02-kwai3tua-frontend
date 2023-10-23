@@ -1,1 +1,1 @@
-declare module 'vue-media-upload'
+declare module 'vue-media-upload';
