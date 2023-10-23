@@ -27,3 +27,9 @@ export interface TeacherItem {
   studentList: StudentItem[]
   student: StudentTeacher
 }
+
+
+export interface AdminItem {
+  Username: string
+  Password: string
+}

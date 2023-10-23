@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import InputText from '@/components/InputText.vue';
+import { useMessageStore } from '@/stores/message';
 // import { ref } from 'vue';
 // const email = ref ('')
 // const password = ref ('')
@@ -7,27 +8,31 @@ import * as yup from 'yup'
 import { useField, useForm} from 'vee-validate'
 import {useAuthStore} from '@/stores/auth'
 import router from '@/router';
+const messageStore = useMessageStore()
 const authStore = useAuthStore()
 const validationSchema = yup.object({
-    email: yup.string().required('The email is required'),
+    username: yup.string().required('The email is required'),
     password: yup.string().required('The password is requied')
 })
 const {errors, handleSubmit} = useForm({
     validationSchema,
     initialValues:{
-        email:'',
+        username:'',
         password: ''
     }
 })
-const { value: email} = useField<string>('email')
+const { value: username} = useField<string>('username')
 const { value: password } = useField<string>('password')
 const onSubmit = handleSubmit((values)=>{
-    authStore.login(values.email, values.password)
+    authStore.login(values.username, values.password)
     .then(()=>{
         console.log('login success')
         router.push({name:'admindashboard'})
     }).catch((err)=>{
-        console.log('error',err)
+        messageStore.updateMessage('could not login')
+        setTimeout(()=>{
+            messageStore.resetMessage()
+        },3000)
     })
 })
 </script>
@@ -40,10 +45,10 @@ const onSubmit = handleSubmit((values)=>{
                 <form @submit.prevent="onSubmit">
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                        Email
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Username">
+                        Username
                     </label>
-                    <InputText type="text" v-model="email" :error="errors['email']"></InputText>
+                    <InputText type="text" v-model="username" :error="errors['username']"></InputText>
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
