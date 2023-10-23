@@ -4,7 +4,7 @@ value(value: any): unknown
     studentId: number
     name: string
     surname: string
-    profileImg: string
+    profileImg: string[]
     department: string
     advisor: StudentAdvisor | string
 }
