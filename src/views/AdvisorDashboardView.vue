@@ -41,8 +41,8 @@ watchEffect(() => {
 <template>
   <div class="flex flex-col items-center justify-start">
     <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">
-        <div class="text-5xl font-bold text-blue-500 mb-4 flex items-center justify-center">
-          Student Information
+        <div class="text-5xl font-bold text-blue-500 mb-4 flex items-center justify-center mt-8">
+          Advisor Dashboard
           <img src="https://www.svgrepo.com/show/66044/stockbroker-wearing-glasses-suit-and-tie.svg" alt="Image Alt Text"
             class="w-12 h-12 ml-4 inline-block" />
         </div>

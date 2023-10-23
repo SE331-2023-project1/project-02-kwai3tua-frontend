@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router';
     <div class="min-h-screen flex flex-col items-center justify-center bg-white relative">
         <img src="https://www.svgrepo.com/show/520490/student.svg" alt="User Icon" class="w-24 h-20 mb-4" />
 
-        <div class="w-full max-w-screen-md">
+        <div class="w-full max-w-screen-md" style="max-width: 50%;">
             <h1
                 class="text-5xl font-bold text-transparent bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text mb-4 text-center">
                 Student Registration</h1>

@@ -36,7 +36,7 @@ const onSubmit = handleSubmit((values)=>{
     <div class="min-h-screen flex flex-col items-center justify-center bg-white relative">
         <img src="https://www.svgrepo.com/show/108160/admin-with-cogwheels.svg" alt="User Icon" class="w-24 h-20 mb-4" />
 
-        <div class="w-full max-w-screen-md">
+        <div class="w-full max-w-screen-md" style="max-width: 50%;">
             <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">Admin Login</h1>
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <form @submit.prevent="onSubmit">

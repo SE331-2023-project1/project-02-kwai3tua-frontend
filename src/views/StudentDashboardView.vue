@@ -5,7 +5,7 @@ import AdvisorCommentCard from '@/components/AdvisorCommentCard.vue'
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-start">
+  <div class="flex flex-col items-center justify-start mt-8">
     <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">
                 <div class="text-5xl font-bold text-blue-500 mb-4 flex items-center justify-center">
                     Student Dashboard
