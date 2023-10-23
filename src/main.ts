@@ -1,4 +1,5 @@
 import './assets/main.css'
+import '@/services/AxiosInterceptorSetup'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

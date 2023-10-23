@@ -3,20 +3,16 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="container">
+  <!-- <div class="container"> -->
     <RouterView/>
-  </div>
+  <!-- </div> -->
 </template>
 
-<style scoped>
+<style>
 .container {
-  max-width: 100%;
-  width: 100%;
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+    padding: 0 20px;
+    max-width: 1140px;
+    margin: 0 auto;
 }
 
 /* Define responsive styles */
