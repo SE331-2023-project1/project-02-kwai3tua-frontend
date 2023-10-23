@@ -34,6 +34,8 @@ const onSubmit = handleSubmit((values)=>{
 
 <template>
     <div class="min-h-screen flex flex-col items-center justify-center bg-white relative">
+        <img src="https://www.svgrepo.com/show/108160/admin-with-cogwheels.svg" alt="User Icon" class="w-24 h-20 mb-4" />
+
         <div class="w-full max-w-screen-md">
             <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">Admin Login</h1>
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -51,10 +53,10 @@ const onSubmit = handleSubmit((values)=>{
                     </label>
                     <InputText type="password" v-model="password" :error="errors['password']"></InputText>
                 </div>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-center">
                     <!-- new routerlink required -->
                     <button  type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline">
                         Sign In
                     </button>
                 </div>

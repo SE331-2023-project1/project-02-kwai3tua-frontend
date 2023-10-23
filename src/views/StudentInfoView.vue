@@ -9,31 +9,32 @@ import BaseInput from '@/components/BaseInput.vue'
 
 const router = useRouter()
 const student = ref<StudentItem>({
-value: function (value: any): unknown {
-throw new Error('Function not implemented.')
-},
-id: 0,
-studentId: 0,
-firstName: '',
-lastName: '',
-profileImg: [],
-department: '',
-advisor: {
-id: 0,
-firstName: 'string',
-lastName: 'string',
-profileImg: [],
-department: 'string',
-studentList: [],
-student: {
-id: 0,
-firstName: '',
-lastName: '',
-studentID: '',
-profileImg: [],
-department: ''
-}
-}})
+  value: function (value: any): unknown {
+    throw new Error('Function not implemented.')
+  },
+  id: 0,
+  studentId: 0,
+  firstName: '',
+  lastName: '',
+  profileImg: [],
+  department: '',
+  advisor: {
+    id: 0,
+    firstName: 'string',
+    lastName: 'string',
+    profileImg: [],
+    department: 'string',
+    studentList: [],
+    student: {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      studentID: '',
+      profileImg: [],
+      department: ''
+    }
+  }
+})
 
 function saveStudent() {
   StudentService.saveStudent(student.value)
@@ -50,7 +51,15 @@ function saveStudent() {
 <template>
   <div class="min-h-screen flex flex-col items-center justify-center bg-white relative">
     <div class="w-full max-w-screen-md">
-      <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">Student Information</h1>
+      <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">
+        <div class="text-5xl font-bold text-blue-500 mb-4 flex items-center justify-center">
+          Student Information
+          <img src="https://www.svgrepo.com/show/465309/information-circle.svg" alt="Image Alt Text"
+            class="w-12 h-12 ml-4 inline-block" />
+        </div>
+      </h1>
+
+
       <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <form @submit.prevent="saveStudent">
           <div class="mb-4">
@@ -59,19 +68,13 @@ function saveStudent() {
             </label>
             <BaseInput
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              v-model="student.studentId"
-              id="StudentId"
-              type="text"
-            />
+              v-model="student.studentId" id="StudentId" type="text" />
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="name"> Name </label>
             <BaseInput
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              v-model="student.firstName"
-              id="name"
-              type="text"
-            />
+              v-model="student.firstName" id="name" type="text" />
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
@@ -79,10 +82,7 @@ function saveStudent() {
             </label>
             <BaseInput
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              v-model="student.lastName"
-              id="surname"
-              type="text"
-            />
+              v-model="student.lastName" id="surname" type="text" />
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="Department">
@@ -90,25 +90,20 @@ function saveStudent() {
             </label>
             <BaseInput
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              v-model="student.department"
-              id="Department"
-              type="text"
-            />
+              v-model="student.department" id="Department" type="text" />
           </div>
-          
+
 
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">
               Profile Image
-            </label> 
+            </label>
             <ImageUpload v-model="student.profileImg" />
           </div>
 
           <div class="flex items-center justify-between">
-            <button
-              type="submit"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
+            <button type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Create Profile
             </button>
           </div>

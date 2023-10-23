@@ -6,8 +6,13 @@ import AdvisorCommentCard from '@/components/AdvisorCommentCard.vue'
 
 <template>
   <div class="flex flex-col items-center justify-start">
-    <h1 class="font-bold text-5xl text-blue-500 mt-6 mb-6">Student Dashboard</h1>
-  </div>
+    <h1 class="text-5xl font-bold text-blue-500 mb-4 text-center">
+                <div class="text-5xl font-bold text-blue-500 mb-4 flex items-center justify-center">
+                    Student Dashboard
+                    <img src="https://www.svgrepo.com/show/493399/male-student-studying.svg" alt="Image Alt Text"
+                        class="w-12 h-12 ml-4 inline-block" />
+                </div>
+            </h1>  </div>
   <div class="">
     <h1 class="font-bold text-2xl text-blue-500">Annoucement</h1>
     <AnnouncementCard></AnnouncementCard>
