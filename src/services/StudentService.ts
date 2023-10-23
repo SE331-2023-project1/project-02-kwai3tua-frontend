@@ -1,18 +1,18 @@
 import apiClient from './AxiosClient'
-import type { AxiosResponse } from 'axios'
+import type {  AxiosResponse } from 'axios'
 import type { StudentItem } from '@/type'
 
-
-
 export default {
-  getStudent(perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
+  getStudents(perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
     return apiClient.get<StudentItem[]>('/students?_limit=' + perPage + '&_page=' + page)
   },
-  getStudentById(id: number): Promise<AxiosResponse<StudentItem>> {
-    return apiClient.get<StudentItem>('students/' + id.toString())
+  getAllStudents(): Promise<AxiosResponse<StudentItem[]>> {
+    return apiClient.get<StudentItem[]>('/students')
   },
-  saveStudent(student: StudentItem): Promise<AxiosResponse<StudentItem>> {
-        return apiClient.post<StudentItem>('/students', student)
-      }
-    
+  getStudentsById(id: string): Promise<AxiosResponse<StudentItem[]>> {
+    return apiClient.get<StudentItem[]>('/students/' + id)
+  },
+  getStudentsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
+    return apiClient.get<StudentItem[]>('/students?_limit=' + perPage + '&_page=' + page + '&_filter=' + keyword)
+  },
 }
