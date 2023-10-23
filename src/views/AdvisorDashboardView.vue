@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AnnouncementCard from '@/components/AnnouncementCard.vue'
+
 import StudentListCard from '@/components/StudentListCard.vue'
 import StudentCommentCard from '@/components/StudentCommentCard.vue'
 import type { StudentItem } from '@/type'
@@ -50,7 +50,7 @@ const postAnnouncement = () => {
     <h1 class="font-bold text-5xl text-blue-500 mt-6 mb-6">Advisor Dashboard</h1>
   </div>
   <hr class="border-2 border-black rounded"/>
-  <h1 class="pt-10 font-bold text-2xl text-blue-500 text-center">Create Announcement</h1>
+  <h1 class="pt-8 font-bold text-2xl text-blue-500 text-center">Create Announcement</h1>
     <div class="mt-5 mb-5 border-2 border-black rounded-lg py-4">
       <form @submit.prevent="postAnnouncement">
         <div class="mb-4">
@@ -82,7 +82,7 @@ const postAnnouncement = () => {
       <h1 class="font-bold text-2xl text-blue-500 mb-5 text-center">Advisee List</h1>
       <div>
       <RouterLink v-for="student in studentList" 
-      :key="student.studentId" :to="{ name: 'studentdetail', params: { studentId: student.studentId } }">
+      :key="student.studentId" :to="{ params: { studentId: student.studentId } }">
       <StudentListCard :student="student"></StudentListCard>
       </RouterLink>
     </div>

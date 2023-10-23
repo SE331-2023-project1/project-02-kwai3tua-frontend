@@ -10,7 +10,7 @@ import AdvisorCommentCard from '@/components/AdvisorCommentCard.vue'
   </div>
   <hr class="border-2 border-black rounded"/>
   <div>
-    <h1 class="pt-10 font-bold text-2xl text-blue-500 text-center">Annoucement</h1>
+    <h1 class="pt-8 font-bold text-2xl text-blue-500 text-center">Annoucement</h1>
     <AnnouncementCard></AnnouncementCard>
   </div>
   <div>

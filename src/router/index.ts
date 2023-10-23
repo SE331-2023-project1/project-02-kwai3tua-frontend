@@ -54,9 +54,10 @@ const router = createRouter({
       component: StudentDashboardView
     },
     {
-      path: '/studentdetail',
+      path: '/studentdetail/:studentId',
       name: 'studentdetail',
-      component: StudentDetailView
+      component: StudentDetailView,
+      props: true
     },
     {
       path: '/advisor',
