@@ -8,9 +8,9 @@ import { RouterLink } from 'vue-router';
 
         <div class="w-full max-w-screen-md" style="max-width: 50%;">
             <h1
-                class="text-5xl font-bold text-transparent bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text mb-4 text-center">
+            class="text-5xl font-bold text-transparent bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-center py-8">
                 Student Registration</h1>
-            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                         Username

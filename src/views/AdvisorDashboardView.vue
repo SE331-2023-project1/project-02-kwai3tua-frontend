@@ -48,7 +48,7 @@ watchEffect(() => {
         </div>
       </h1>  </div>
   <div class="">
-    <h1 class="font-bold text-2xl text-blue-500">Post Annoucement</h1>
+    <h1 class="font-bold text-2xl text-blue-500">Post Announcement</h1>
     <AnnouncementCard></AnnouncementCard>
   </div>
   <div class="">

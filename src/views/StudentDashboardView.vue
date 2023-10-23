@@ -14,7 +14,7 @@ import AdvisorCommentCard from '@/components/AdvisorCommentCard.vue'
                 </div>
             </h1>  </div>
   <div class="">
-    <h1 class="font-bold text-2xl text-blue-500">Annoucement</h1>
+    <h1 class="font-bold text-2xl text-blue-500">Announcement</h1>
     <AnnouncementCard></AnnouncementCard>
   </div>
   <div class="">
