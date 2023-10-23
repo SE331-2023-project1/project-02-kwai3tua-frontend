@@ -1,65 +1,74 @@
 <script setup lang="ts">
 import UniqueID from '@/features/UniqueID'
-import { isError } from 'util';
-import { computed } from 'vue';
-import ErrorMessage from './ErrorMessage.vue';
-import path from 'path';
+import ErrorMessage from '@/components/ErrorMessage.vue'
 
-export interface Props{
-    placeholder?: string
-    modelValue?: any
-    error?:string
-    required?: boolean
-    type: string
+import { computed } from 'vue'
+
+export interface Props {
+  placeholder?: string
+  modelValue?: any
+  error?: string
+  required?: boolean
+  type: string
+  disabled?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(),{
-    placeholder: '',
-    modelValue: '',
-    error: '',
-    required: false,
-    type: 'text'
+const props = withDefaults(defineProps<Props>(), {
+  placeholder: '',
+  modelValue: '',
+  error: '',
+  required: false,
+  type: 'text',
+  disabled: false
 })
+
 const uuid = UniqueID().getID()
-const placeholderErrorClass = computed(()=>{
-    return !isError.value ? 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-    : 'block w-full rounded-md border-0 py-1.5 text-red-700 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+
+const placeholderErrorClass = computed(() => {
+  return !isError.value
+    ? `h-10 border mt-1 text-gray-900 rounded px-4 bg-gray-50 block w-full shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#42b883] sm:text-sm sm:leading-6 disabled:bg-slate-50 disabled:text-slate-500 disabled:ring-slate-200 disabled:shadow-none`
+    : `h-10 border mt-1 rounded px-4 bg-gray-50 block w-full text-red-700 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6`
 })
-// eslint-disable-next-line no-redeclare, no-import-assign
-const isError = computed(()=>{
-    return props.error? true:false
+
+const isError = computed(() => {
+  return props.error ? true : false
 })
 </script>
 
 <template>
-    <div>
-        <div class="mt-2">
-            <input 
-            :type="type"
-            :id="uuid"
-            :class="placeholderErrorClass"
-            :placeholder="placeholder"
-            :value="modelValue"
-            @input="$emit('update:modelValue',($event.target as HTMLInputElement)?.value)"
-            v-bind="$attrs"
-            :aria-describedby="error? `$(uuid)-error` : undefined"
-            :aria-invalid="error? true:false"
-            />
-            <ErrorMessage class="inline-flex text-sm text-red-700" v-if="error" :id="`$(uuid)-error`">
-                {{ error }}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path 
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6112 12"/>
-                </svg>
-            </ErrorMessage>
-        </div>
+  <div>
+    <div class="mt-2">
+      <input
+        :type="type"
+        :id="uuid"
+        :class="placeholderErrorClass"
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="$emit('update:modelValue', ($event.target as HTMLInputElement)?.value)"
+        v-bind="$attrs"
+        :aria-describedby="error ? `${uuid}-error` : undefined"
+        :aria-invalid="error ? true : false"
+        :disabled="disabled"
+      />
+
+      <ErrorMessage class="inline-flex text-sm text-red-700" v-if="error" :id="`${uuid}-error`">
+        {{ error }}
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </ErrorMessage>
     </div>
+  </div>
 </template>
