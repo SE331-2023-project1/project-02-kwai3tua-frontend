@@ -45,11 +45,11 @@ import { RouterLink } from 'vue-router';
 
           </div>
         </div>
-        <div class="absolute bottom-4 right-4">
+        <!-- <div class="absolute bottom-4 right-4">
           <RouterLink to="/adminlogin" class="text-blue-500 hover:text-blue-800 font-bold" href="#">
             Admin Login
           </RouterLink>
-        </div>
+        </div> -->
       </div>
 
 </template>
